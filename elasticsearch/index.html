@@ -122,40 +122,105 @@
 									
 										
 									<tr>
-										<td class="c">RightCurly</td>
-										<td class="b">
+										<td class="c">MagicNumber</td>
+										
+										<td class="c">
 											
-												tokens
+												id
 												
-													<li>LITERAL_TRY , LITERAL_CATCH , LITERAL_FINALLY , LITERAL_IF , LITERAL_ELSE , CLASS_DEF,                      METHOD_DEF, CTOR_DEF, LITERAL_FOR, LITERAL_WHILE, LITERAL_DO, STATIC_INIT, INSTANCE_INIT, ANNOTATION_DEF,                      ENUM_DEF, INTERFACE_DEF, RECORD_DEF, COMPACT_CTOR_DEF</li>
-												
-												<br/>
-											
-												option
-												
-													<li>alone</li>
+													<li>MagicNumber1</li>
 												
 												<br/>
 											
 										</td>
 										
 										
-										<td class="a">
+										<td class="c">
 											
-												tokens
+												id
 												
-													<li>LITERAL_SWITCH,LITERAL_TRY , LITERAL_CATCH , LITERAL_FINALLY , LITERAL_IF , LITERAL_ELSE , CLASS_DEF,                      METHOD_DEF, CTOR_DEF, LITERAL_FOR, LITERAL_WHILE, LITERAL_DO, STATIC_INIT, INSTANCE_INIT, ANNOTATION_DEF,                      ENUM_DEF, INTERFACE_DEF, RECORD_DEF, COMPACT_CTOR_DEF</li>
-												
-												<br/>
-											
-												option
-												
-													<li>alone</li>
+													<li>MagicNumber1</li>
 												
 												<br/>
 											
 										</td>
 										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">MagicNumber</td>
+										
+										<td class="c">
+											
+												ignoreAnnotation
+												
+													<li>true</li>
+												
+												<br/>
+											
+												ignoreNumbers
+												
+													<li>-1, 0, 1, 2</li>
+												
+												<br/>
+											
+												tokens
+												
+													<li>NUM_DOUBLE , NUM_FLOAT , NUM_INT , NUM_LONG </li>
+												
+												<br/>
+											
+												ignoreFieldDeclaration
+												
+													<li>true</li>
+												
+												<br/>
+											
+												id
+												
+													<li>MagicNumber2</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												ignoreAnnotation
+												
+													<li>true</li>
+												
+												<br/>
+											
+												ignoreNumbers
+												
+													<li>-1, 0, 1, 2</li>
+												
+												<br/>
+											
+												tokens
+												
+													<li>NUM_DOUBLE , NUM_FLOAT , NUM_INT , NUM_LONG </li>
+												
+												<br/>
+											
+												ignoreFieldDeclaration
+												
+													<li>true</li>
+												
+												<br/>
+											
+												id
+												
+													<li>MagicNumber2</li>
+												
+												<br/>
+											
+										</td>
 										
 									</tr>
 									
@@ -254,25 +319,25 @@
 						<tr class="b">
 							<td>base</td>
 							<td id="filesBase">4138</td>
-							<td id="totalBase">9285</td>
+							<td id="totalBase">33679</td>
 							
-								<td id="warningSeverityNumBase">9285</td>
+								<td id="warningSeverityNumBase">33679</td>
 							
 						</tr>
 						<tr class="a">
 							<td>patch</td>
 							<td id="filesPatch">4138</td>
-							<td id="totalPatch">9285</td>
+							<td id="totalPatch">33701 (22 added)</td>
 							
-								<td id="warningSeverityStatisticsPatch">9285</td>
+								<td id="warningSeverityStatisticsPatch">33701 (22 added)</td>
 							
 						</tr>
 						<tr class="d">
 							<td/>
-							<td id="filesDiff">0 files with differences</td>
-							<td id="totalDiff">0 changes in violations</td>
+							<td id="filesDiff">13 files with differences</td>
+							<td id="totalDiff">22 changes in violations</td>
 							
-								<td id="warningSeverityNumDiff">0 changes in violations</td>
+								<td id="warningSeverityNumDiff">22 changes in violations</td>
 							
 						<tr>
 					</table>
@@ -283,25 +348,33 @@
 							<tr class="a">
 								<th>Report id</th>
 								
-									<th>com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheck</th>
+									<th>MagicNumber2</th>
+								
+									<th>MagicNumber1</th>
 								
 							</tr>
 							<tr class="b">
 								<td>base</td>
 								
-									<td id="com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheckModuleNumBase">9285</td>
+									<td id="MagicNumber2ModuleNumBase">16781</td>
+								
+									<td id="MagicNumber1ModuleNumBase">16898</td>
 								
 							</tr>
 							<tr class="a">
 								<td>patch</td>
 								
-									<td id="com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheckModuleStatisticsPatch">9285</td>
+									<td id="MagicNumber2ModuleStatisticsPatch">16803 (22 added)</td>
+								
+									<td id="MagicNumber1ModuleStatisticsPatch">16898</td>
 								
 							</tr>
 							<tr class="d">
 								<td>changes in violations</td>
 								
-									<td id="com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheckModuleNumDiff">0</td>
+									<td id="MagicNumber2ModuleNumDiff">22</td>
+								
+									<td id="MagicNumber1ModuleNumDiff">0</td>
 								
 							<tr>
 						</table>
@@ -309,12 +382,568 @@
 
 					<br />
 					Number of unique base messages reported below: <span id="uniqueMessagesBase">0</span><br />
-					Number of unique patch messages reported below: <span id="uniqueMessagesPatch">0</span><br />
+					Number of unique patch messages reported below: <span id="uniqueMessagesPatch">22</span><br />
 				</div>
 			</div>
 
 			<div class="section">
 				<h2><a name="Violations" href="#Violations">Violations:</a></h2>
+				<div class="section">
+					<h3>/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/elasticsearch/src/main/java/org/apache/lucene/search/suggest/analyzing/XAnalyzingSuggester.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A1" href = "#A1">#A1</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;256&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/elasticsearch/src/main/java/org/apache/lucene/search/suggest/analyzing/XAnalyzingSuggester.java.html#L1010">1010</a></td>
+								
+								
+									
+									<td class="keepWidth">108</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A2" href = "#A2">#A2</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;0.75f&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/elasticsearch/src/main/java/org/apache/lucene/search/suggest/analyzing/XAnalyzingSuggester.java.html#L1010">1010</a></td>
+								
+								
+									
+									<td class="keepWidth">113</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/elasticsearch/src/main/java/org/elasticsearch/action/admin/cluster/health/ClusterHealthRequest.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A3" href = "#A3">#A3</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;30&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/elasticsearch/src/main/java/org/elasticsearch/action/admin/cluster/health/ClusterHealthRequest.java.html#L43">43</a></td>
+								
+								
+									
+									<td class="keepWidth">47</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/elasticsearch/src/main/java/org/elasticsearch/action/admin/cluster/node/hotthreads/NodesHotThreadsRequest.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A4" href = "#A4">#A4</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;500&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/elasticsearch/src/main/java/org/elasticsearch/action/admin/cluster/node/hotthreads/NodesHotThreadsRequest.java.html#L37">37</a></td>
+								
+								
+									
+									<td class="keepWidth">40</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/elasticsearch/src/main/java/org/elasticsearch/action/bulk/BulkProcessor.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A5" href = "#A5">#A5</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;5&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/elasticsearch/src/main/java/org/elasticsearch/action/bulk/BulkProcessor.java.html#L81">81</a></td>
+								
+								
+									
+									<td class="keepWidth">60</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/elasticsearch/src/main/java/org/elasticsearch/cluster/metadata/MetaDataDeleteIndexService.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A6" href = "#A6">#A6</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;10&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/elasticsearch/src/main/java/org/elasticsearch/cluster/metadata/MetaDataDeleteIndexService.java.html#L225">225</a></td>
+								
+								
+									
+									<td class="keepWidth">56</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/elasticsearch/src/main/java/org/elasticsearch/index/mapper/ContentPath.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A7" href = "#A7">#A7</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;10&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/elasticsearch/src/main/java/org/elasticsearch/index/mapper/ContentPath.java.html#L42">42</a></td>
+								
+								
+									
+									<td class="keepWidth">40</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/elasticsearch/src/main/java/org/elasticsearch/index/mapper/core/NumberFieldMapper.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A8" href = "#A8">#A8</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;4&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/elasticsearch/src/main/java/org/elasticsearch/index/mapper/core/NumberFieldMapper.java.html#L162">162</a></td>
+								
+								
+									
+									<td class="keepWidth">43</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A9" href = "#A9">#A9</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;8&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/elasticsearch/src/main/java/org/elasticsearch/index/mapper/core/NumberFieldMapper.java.html#L169">169</a></td>
+								
+								
+									
+									<td class="keepWidth">43</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A10" href = "#A10">#A10</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;16&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/elasticsearch/src/main/java/org/elasticsearch/index/mapper/core/NumberFieldMapper.java.html#L176">176</a></td>
+								
+								
+									
+									<td class="keepWidth">43</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/elasticsearch/src/main/java/org/elasticsearch/monitor/jvm/HotThreads.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A11" href = "#A11">#A11</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;500&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/elasticsearch/src/main/java/org/elasticsearch/monitor/jvm/HotThreads.java.html#L43">43</a></td>
+								
+								
+									
+									<td class="keepWidth">48</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A12" href = "#A12">#A12</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;10&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/elasticsearch/src/main/java/org/elasticsearch/monitor/jvm/HotThreads.java.html#L44">44</a></td>
+								
+								
+									
+									<td class="keepWidth">67</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/elasticsearch/src/main/java/org/elasticsearch/search/aggregations/support/AggregationContext.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A13" href = "#A13">#A13</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;4&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/elasticsearch/src/main/java/org/elasticsearch/search/aggregations/support/AggregationContext.java.html#L52">52</a></td>
+								
+								
+									
+									<td class="keepWidth">124</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/elasticsearch/src/test/java/org/elasticsearch/cluster/routing/allocation/decider/MockDiskUsagesTests.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A14" href = "#A14">#A14</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;3&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/elasticsearch/src/test/java/org/elasticsearch/cluster/routing/allocation/decider/MockDiskUsagesTests.java.html#L164">164</a></td>
+								
+								
+									
+									<td class="keepWidth">60</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/elasticsearch/src/test/java/org/elasticsearch/stresstest/fullrestart/FullRestartStressTest.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A15" href = "#A15">#A15</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;20&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/elasticsearch/src/test/java/org/elasticsearch/stresstest/fullrestart/FullRestartStressTest.java.html#L67">67</a></td>
+								
+								
+									
+									<td class="keepWidth">59</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/elasticsearch/src/test/java/org/elasticsearch/stresstest/rollingrestart/RollingRestartStressTest.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A16" href = "#A16">#A16</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;100&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/elasticsearch/src/test/java/org/elasticsearch/stresstest/rollingrestart/RollingRestartStressTest.java.html#L71">71</a></td>
+								
+								
+									
+									<td class="keepWidth">67</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A17" href = "#A17">#A17</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;20&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/elasticsearch/src/test/java/org/elasticsearch/stresstest/rollingrestart/RollingRestartStressTest.java.html#L75">75</a></td>
+								
+								
+									
+									<td class="keepWidth">59</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/elasticsearch/src/test/java/org/elasticsearch/stresstest/search1/Search1StressTest.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A18" href = "#A18">#A18</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;100&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/elasticsearch/src/test/java/org/elasticsearch/stresstest/search1/Search1StressTest.java.html#L58">58</a></td>
+								
+								
+									
+									<td class="keepWidth">67</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A19" href = "#A19">#A19</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;20&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/elasticsearch/src/test/java/org/elasticsearch/stresstest/search1/Search1StressTest.java.html#L60">60</a></td>
+								
+								
+									
+									<td class="keepWidth">68</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A20" href = "#A20">#A20</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;1000&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/elasticsearch/src/test/java/org/elasticsearch/stresstest/search1/Search1StressTest.java.html#L65">65</a></td>
+								
+								
+									
+									<td class="keepWidth">67</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A21" href = "#A21">#A21</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;5000&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/elasticsearch/src/test/java/org/elasticsearch/stresstest/search1/Search1StressTest.java.html#L66">66</a></td>
+								
+								
+									
+									<td class="keepWidth">73</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A22" href = "#A22">#A22</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;20&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/elasticsearch/src/test/java/org/elasticsearch/stresstest/search1/Search1StressTest.java.html#L70">70</a></td>
+								
+								
+									
+									<td class="keepWidth">59</td>
+								
+							</tr>
+						
+					</table>
+				</div>
 			</div>
 		</div>
 	</body>

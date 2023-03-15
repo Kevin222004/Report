@@ -122,40 +122,105 @@
 									
 										
 									<tr>
-										<td class="c">RightCurly</td>
-										<td class="b">
+										<td class="c">MagicNumber</td>
+										
+										<td class="c">
 											
-												tokens
+												id
 												
-													<li>LITERAL_TRY , LITERAL_CATCH , LITERAL_FINALLY , LITERAL_IF , LITERAL_ELSE , CLASS_DEF,                      METHOD_DEF, CTOR_DEF, LITERAL_FOR, LITERAL_WHILE, LITERAL_DO, STATIC_INIT, INSTANCE_INIT, ANNOTATION_DEF,                      ENUM_DEF, INTERFACE_DEF, RECORD_DEF, COMPACT_CTOR_DEF</li>
-												
-												<br/>
-											
-												option
-												
-													<li>alone</li>
+													<li>MagicNumber1</li>
 												
 												<br/>
 											
 										</td>
 										
 										
-										<td class="a">
+										<td class="c">
 											
-												tokens
+												id
 												
-													<li>LITERAL_SWITCH,LITERAL_TRY , LITERAL_CATCH , LITERAL_FINALLY , LITERAL_IF , LITERAL_ELSE , CLASS_DEF,                      METHOD_DEF, CTOR_DEF, LITERAL_FOR, LITERAL_WHILE, LITERAL_DO, STATIC_INIT, INSTANCE_INIT, ANNOTATION_DEF,                      ENUM_DEF, INTERFACE_DEF, RECORD_DEF, COMPACT_CTOR_DEF</li>
-												
-												<br/>
-											
-												option
-												
-													<li>alone</li>
+													<li>MagicNumber1</li>
 												
 												<br/>
 											
 										</td>
 										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">MagicNumber</td>
+										
+										<td class="c">
+											
+												ignoreAnnotation
+												
+													<li>true</li>
+												
+												<br/>
+											
+												ignoreNumbers
+												
+													<li>-1, 0, 1, 2</li>
+												
+												<br/>
+											
+												tokens
+												
+													<li>NUM_DOUBLE , NUM_FLOAT , NUM_INT , NUM_LONG </li>
+												
+												<br/>
+											
+												ignoreFieldDeclaration
+												
+													<li>true</li>
+												
+												<br/>
+											
+												id
+												
+													<li>MagicNumber2</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												ignoreAnnotation
+												
+													<li>true</li>
+												
+												<br/>
+											
+												ignoreNumbers
+												
+													<li>-1, 0, 1, 2</li>
+												
+												<br/>
+											
+												tokens
+												
+													<li>NUM_DOUBLE , NUM_FLOAT , NUM_INT , NUM_LONG </li>
+												
+												<br/>
+											
+												ignoreFieldDeclaration
+												
+													<li>true</li>
+												
+												<br/>
+											
+												id
+												
+													<li>MagicNumber2</li>
+												
+												<br/>
+											
+										</td>
 										
 									</tr>
 									
@@ -254,25 +319,25 @@
 						<tr class="b">
 							<td>base</td>
 							<td id="filesBase">2053</td>
-							<td id="totalBase">3516</td>
+							<td id="totalBase">6644</td>
 							
-								<td id="warningSeverityNumBase">3516</td>
+								<td id="warningSeverityNumBase">6644</td>
 							
 						</tr>
 						<tr class="a">
 							<td>patch</td>
 							<td id="filesPatch">2053</td>
-							<td id="totalPatch">3517 (1 added)</td>
+							<td id="totalPatch">6650 (6 added)</td>
 							
-								<td id="warningSeverityStatisticsPatch">3517 (1 added)</td>
+								<td id="warningSeverityStatisticsPatch">6650 (6 added)</td>
 							
 						</tr>
 						<tr class="d">
 							<td/>
-							<td id="filesDiff">1 file with differences</td>
-							<td id="totalDiff">1 change in violations</td>
+							<td id="filesDiff">4 files with differences</td>
+							<td id="totalDiff">6 changes in violations</td>
 							
-								<td id="warningSeverityNumDiff">1 change in violations</td>
+								<td id="warningSeverityNumDiff">6 changes in violations</td>
 							
 						<tr>
 					</table>
@@ -283,25 +348,33 @@
 							<tr class="a">
 								<th>Report id</th>
 								
-									<th>com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheck</th>
+									<th>MagicNumber2</th>
+								
+									<th>MagicNumber1</th>
 								
 							</tr>
 							<tr class="b">
 								<td>base</td>
 								
-									<td id="com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheckModuleNumBase">3516</td>
+									<td id="MagicNumber2ModuleNumBase">3273</td>
+								
+									<td id="MagicNumber1ModuleNumBase">3371</td>
 								
 							</tr>
 							<tr class="a">
 								<td>patch</td>
 								
-									<td id="com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheckModuleStatisticsPatch">3517 (1 added)</td>
+									<td id="MagicNumber2ModuleStatisticsPatch">3279 (6 added)</td>
+								
+									<td id="MagicNumber1ModuleStatisticsPatch">3371</td>
 								
 							</tr>
 							<tr class="d">
 								<td>changes in violations</td>
 								
-									<td id="com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheckModuleNumDiff">1</td>
+									<td id="MagicNumber2ModuleNumDiff">6</td>
+								
+									<td id="MagicNumber1ModuleNumDiff">0</td>
 								
 							<tr>
 						</table>
@@ -309,14 +382,14 @@
 
 					<br />
 					Number of unique base messages reported below: <span id="uniqueMessagesBase">0</span><br />
-					Number of unique patch messages reported below: <span id="uniqueMessagesPatch">1</span><br />
+					Number of unique patch messages reported below: <span id="uniqueMessagesPatch">6</span><br />
 				</div>
 			</div>
 
 			<div class="section">
 				<h2><a name="Violations" href="#Violations">Violations:</a></h2>
 				<div class="section">
-					<h3>/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/spoon/spoon-dataflow/src/test/java/fr/inria/spoon/dataflow/testcases/TestSwitch.java</h3>
+					<h3>/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/spoon/spoon-dataflow/src/test/java/fr/inria/spoon/dataflow/testcases/TestAnonymousClass.java</h3>
 					<tr class="b">
 					<table border="0" class="bodyTable">
 					        <th></th>
@@ -332,15 +405,142 @@
 							
 								<td class="keepWidth"><a name="A1" href = "#A1">#A1</a></td>
 								<td>warning</td>
-								<td>RightCurly</td>
-								<td>&#39;}&#39; at column 21 should be alone on a line.</td>
+								<td>MagicNumber2</td>
+								<td>&#39;42&#39; is a magic number.</td>
 								
 									
-									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/spoon/spoon-dataflow/src/test/java/fr/inria/spoon/dataflow/testcases/TestSwitch.java.html#L103">103</a></td>
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/spoon/spoon-dataflow/src/test/java/fr/inria/spoon/dataflow/testcases/TestAnonymousClass.java.html#L96">96</a></td>
+								
+								
+									
+									<td class="keepWidth">20</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/spoon/src/test/java/spoon/test/initializers/testclasses/InstanceInitializers.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A2" href = "#A2">#A2</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;5&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/spoon/src/test/java/spoon/test/initializers/testclasses/InstanceInitializers.java.html#L18">18</a></td>
 								
 								
 									
 									<td class="keepWidth">21</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A3" href = "#A3">#A3</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;12.0&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/spoon/src/test/java/spoon/test/initializers/testclasses/InstanceInitializers.java.html#L27">27</a></td>
+								
+								
+									
+									<td class="keepWidth">15</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A4" href = "#A4">#A4</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;15.0&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/spoon/src/test/java/spoon/test/initializers/testclasses/InstanceInitializers.java.html#L27">27</a></td>
+								
+								
+									
+									<td class="keepWidth">26</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/spoon/src/test/java/spoon/test/prettyprinter/testclasses/ToBeChanged.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A5" href = "#A5">#A5</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;7&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/spoon/src/test/java/spoon/test/prettyprinter/testclasses/ToBeChanged.java.html#L37">37</a></td>
+								
+								
+									
+									<td class="keepWidth">52</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/spoon/src/test/resources/sniperPrinter/arrayInitialisation/ToNullElements.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A6" href = "#A6">#A6</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;42&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/spoon/src/test/resources/sniperPrinter/arrayInitialisation/ToNullElements.java.html#L4">4</a></td>
+								
+								
+									
+									<td class="keepWidth">33</td>
 								
 							</tr>
 						

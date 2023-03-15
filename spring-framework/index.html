@@ -122,40 +122,105 @@
 									
 										
 									<tr>
-										<td class="c">RightCurly</td>
-										<td class="b">
+										<td class="c">MagicNumber</td>
+										
+										<td class="c">
 											
-												tokens
+												id
 												
-													<li>LITERAL_TRY , LITERAL_CATCH , LITERAL_FINALLY , LITERAL_IF , LITERAL_ELSE , CLASS_DEF,                      METHOD_DEF, CTOR_DEF, LITERAL_FOR, LITERAL_WHILE, LITERAL_DO, STATIC_INIT, INSTANCE_INIT, ANNOTATION_DEF,                      ENUM_DEF, INTERFACE_DEF, RECORD_DEF, COMPACT_CTOR_DEF</li>
-												
-												<br/>
-											
-												option
-												
-													<li>alone</li>
+													<li>MagicNumber1</li>
 												
 												<br/>
 											
 										</td>
 										
 										
-										<td class="a">
+										<td class="c">
 											
-												tokens
+												id
 												
-													<li>LITERAL_SWITCH,LITERAL_TRY , LITERAL_CATCH , LITERAL_FINALLY , LITERAL_IF , LITERAL_ELSE , CLASS_DEF,                      METHOD_DEF, CTOR_DEF, LITERAL_FOR, LITERAL_WHILE, LITERAL_DO, STATIC_INIT, INSTANCE_INIT, ANNOTATION_DEF,                      ENUM_DEF, INTERFACE_DEF, RECORD_DEF, COMPACT_CTOR_DEF</li>
-												
-												<br/>
-											
-												option
-												
-													<li>alone</li>
+													<li>MagicNumber1</li>
 												
 												<br/>
 											
 										</td>
 										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">MagicNumber</td>
+										
+										<td class="c">
+											
+												ignoreAnnotation
+												
+													<li>true</li>
+												
+												<br/>
+											
+												ignoreNumbers
+												
+													<li>-1, 0, 1, 2</li>
+												
+												<br/>
+											
+												tokens
+												
+													<li>NUM_DOUBLE , NUM_FLOAT , NUM_INT , NUM_LONG </li>
+												
+												<br/>
+											
+												ignoreFieldDeclaration
+												
+													<li>true</li>
+												
+												<br/>
+											
+												id
+												
+													<li>MagicNumber2</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												ignoreAnnotation
+												
+													<li>true</li>
+												
+												<br/>
+											
+												ignoreNumbers
+												
+													<li>-1, 0, 1, 2</li>
+												
+												<br/>
+											
+												tokens
+												
+													<li>NUM_DOUBLE , NUM_FLOAT , NUM_INT , NUM_LONG </li>
+												
+												<br/>
+											
+												ignoreFieldDeclaration
+												
+													<li>true</li>
+												
+												<br/>
+											
+												id
+												
+													<li>MagicNumber2</li>
+												
+												<br/>
+											
+										</td>
 										
 									</tr>
 									
@@ -254,25 +319,25 @@
 						<tr class="b">
 							<td>base</td>
 							<td id="filesBase">5911</td>
-							<td id="totalBase">968</td>
+							<td id="totalBase">13898</td>
 							
-								<td id="warningSeverityNumBase">968</td>
+								<td id="warningSeverityNumBase">13898</td>
 							
 						</tr>
 						<tr class="a">
 							<td>patch</td>
 							<td id="filesPatch">5911</td>
-							<td id="totalPatch">968</td>
+							<td id="totalPatch">13914 (16 added)</td>
 							
-								<td id="warningSeverityStatisticsPatch">968</td>
+								<td id="warningSeverityStatisticsPatch">13914 (16 added)</td>
 							
 						</tr>
 						<tr class="d">
 							<td/>
-							<td id="filesDiff">0 files with differences</td>
-							<td id="totalDiff">0 changes in violations</td>
+							<td id="filesDiff">8 files with differences</td>
+							<td id="totalDiff">16 changes in violations</td>
 							
-								<td id="warningSeverityNumDiff">0 changes in violations</td>
+								<td id="warningSeverityNumDiff">16 changes in violations</td>
 							
 						<tr>
 					</table>
@@ -283,25 +348,33 @@
 							<tr class="a">
 								<th>Report id</th>
 								
-									<th>com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheck</th>
+									<th>MagicNumber2</th>
+								
+									<th>MagicNumber1</th>
 								
 							</tr>
 							<tr class="b">
 								<td>base</td>
 								
-									<td id="com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheckModuleNumBase">968</td>
+									<td id="MagicNumber2ModuleNumBase">6847</td>
+								
+									<td id="MagicNumber1ModuleNumBase">7051</td>
 								
 							</tr>
 							<tr class="a">
 								<td>patch</td>
 								
-									<td id="com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheckModuleStatisticsPatch">968</td>
+									<td id="MagicNumber2ModuleStatisticsPatch">6863 (16 added)</td>
+								
+									<td id="MagicNumber1ModuleStatisticsPatch">7051</td>
 								
 							</tr>
 							<tr class="d">
 								<td>changes in violations</td>
 								
-									<td id="com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheckModuleNumDiff">0</td>
+									<td id="MagicNumber2ModuleNumDiff">16</td>
+								
+									<td id="MagicNumber1ModuleNumDiff">0</td>
 								
 							<tr>
 						</table>
@@ -309,12 +382,396 @@
 
 					<br />
 					Number of unique base messages reported below: <span id="uniqueMessagesBase">0</span><br />
-					Number of unique patch messages reported below: <span id="uniqueMessagesPatch">0</span><br />
+					Number of unique patch messages reported below: <span id="uniqueMessagesPatch">16</span><br />
 				</div>
 			</div>
 
 			<div class="section">
 				<h2><a name="Violations" href="#Violations">Violations:</a></h2>
+				<div class="section">
+					<h3>/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/spring-framework/spring-aop/src/main/java/org/springframework/aop/aspectj/AspectJExpressionPointcut.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A1" href = "#A1">#A1</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;32&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/spring-framework/spring-aop/src/main/java/org/springframework/aop/aspectj/AspectJExpressionPointcut.java.html#L114">114</a></td>
+								
+								
+									
+									<td class="keepWidth">114</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/spring-framework/spring-aop/src/main/java/org/springframework/aop/support/IntroductionInfoSupport.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A2" href = "#A2">#A2</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;32&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/spring-framework/spring-aop/src/main/java/org/springframework/aop/support/IntroductionInfoSupport.java.html#L48">48</a></td>
+								
+								
+									
+									<td class="keepWidth">107</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/spring-framework/spring-context/src/main/java/org/springframework/cache/support/AbstractCacheManager.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A3" href = "#A3">#A3</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;16&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/spring-framework/spring-context/src/main/java/org/springframework/cache/support/AbstractCacheManager.java.html#L43">43</a></td>
+								
+								
+									
+									<td class="keepWidth">68</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/spring-framework/spring-context/src/test/java/org/springframework/format/datetime/joda/DateTimeFormatterFactoryTests.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A4" href = "#A4">#A4</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;2009&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/spring-framework/spring-context/src/test/java/org/springframework/format/datetime/joda/DateTimeFormatterFactoryTests.java.html#L49">49</a></td>
+								
+								
+									
+									<td class="keepWidth">50</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A5" href = "#A5">#A5</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;10&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/spring-framework/spring-context/src/test/java/org/springframework/format/datetime/joda/DateTimeFormatterFactoryTests.java.html#L49">49</a></td>
+								
+								
+									
+									<td class="keepWidth">56</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A6" href = "#A6">#A6</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;21&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/spring-framework/spring-context/src/test/java/org/springframework/format/datetime/joda/DateTimeFormatterFactoryTests.java.html#L49">49</a></td>
+								
+								
+									
+									<td class="keepWidth">60</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A7" href = "#A7">#A7</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;12&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/spring-framework/spring-context/src/test/java/org/springframework/format/datetime/joda/DateTimeFormatterFactoryTests.java.html#L49">49</a></td>
+								
+								
+									
+									<td class="keepWidth">64</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A8" href = "#A8">#A8</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;10&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/spring-framework/spring-context/src/test/java/org/springframework/format/datetime/joda/DateTimeFormatterFactoryTests.java.html#L49">49</a></td>
+								
+								
+									
+									<td class="keepWidth">68</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/spring-framework/spring-context/src/test/java/org/springframework/format/datetime/standard/DateTimeFormatterFactoryTests.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A9" href = "#A9">#A9</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;2009&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/spring-framework/spring-context/src/test/java/org/springframework/format/datetime/standard/DateTimeFormatterFactoryTests.java.html#L50">50</a></td>
+								
+								
+									
+									<td class="keepWidth">59</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A10" href = "#A10">#A10</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;10&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/spring-framework/spring-context/src/test/java/org/springframework/format/datetime/standard/DateTimeFormatterFactoryTests.java.html#L50">50</a></td>
+								
+								
+									
+									<td class="keepWidth">65</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A11" href = "#A11">#A11</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;21&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/spring-framework/spring-context/src/test/java/org/springframework/format/datetime/standard/DateTimeFormatterFactoryTests.java.html#L50">50</a></td>
+								
+								
+									
+									<td class="keepWidth">69</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A12" href = "#A12">#A12</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;12&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/spring-framework/spring-context/src/test/java/org/springframework/format/datetime/standard/DateTimeFormatterFactoryTests.java.html#L50">50</a></td>
+								
+								
+									
+									<td class="keepWidth">73</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A13" href = "#A13">#A13</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;10&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/spring-framework/spring-context/src/test/java/org/springframework/format/datetime/standard/DateTimeFormatterFactoryTests.java.html#L50">50</a></td>
+								
+								
+									
+									<td class="keepWidth">77</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/spring-framework/spring-web/src/main/java/org/springframework/http/client/AbstractBufferingAsyncClientHttpRequest.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A14" href = "#A14">#A14</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;1024&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/spring-framework/spring-web/src/main/java/org/springframework/http/client/AbstractBufferingAsyncClientHttpRequest.java.html#L35">35</a></td>
+								
+								
+									
+									<td class="keepWidth">82</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/spring-framework/spring-web/src/main/java/org/springframework/http/client/AbstractBufferingClientHttpRequest.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A15" href = "#A15">#A15</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;1024&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/spring-framework/spring-web/src/main/java/org/springframework/http/client/AbstractBufferingClientHttpRequest.java.html#L34">34</a></td>
+								
+								
+									
+									<td class="keepWidth">82</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/spring-framework/spring-web/src/main/java/org/springframework/web/method/annotation/AbstractNamedValueMethodArgumentResolver.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A16" href = "#A16">#A16</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;256&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/spring-framework/spring-web/src/main/java/org/springframework/web/method/annotation/AbstractNamedValueMethodArgumentResolver.java.html#L62">62</a></td>
+								
+								
+									
+									<td class="keepWidth">131</td>
+								
+							</tr>
+						
+					</table>
+				</div>
 			</div>
 		</div>
 	</body>

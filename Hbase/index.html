@@ -122,40 +122,105 @@
 									
 										
 									<tr>
-										<td class="c">RightCurly</td>
-										<td class="b">
+										<td class="c">MagicNumber</td>
+										
+										<td class="c">
 											
-												tokens
+												id
 												
-													<li>LITERAL_TRY , LITERAL_CATCH , LITERAL_FINALLY , LITERAL_IF , LITERAL_ELSE , CLASS_DEF,                      METHOD_DEF, CTOR_DEF, LITERAL_FOR, LITERAL_WHILE, LITERAL_DO, STATIC_INIT, INSTANCE_INIT, ANNOTATION_DEF,                      ENUM_DEF, INTERFACE_DEF, RECORD_DEF, COMPACT_CTOR_DEF</li>
-												
-												<br/>
-											
-												option
-												
-													<li>alone</li>
+													<li>MagicNumber1</li>
 												
 												<br/>
 											
 										</td>
 										
 										
-										<td class="a">
+										<td class="c">
 											
-												tokens
+												id
 												
-													<li>LITERAL_SWITCH,LITERAL_TRY , LITERAL_CATCH , LITERAL_FINALLY , LITERAL_IF , LITERAL_ELSE , CLASS_DEF,                      METHOD_DEF, CTOR_DEF, LITERAL_FOR, LITERAL_WHILE, LITERAL_DO, STATIC_INIT, INSTANCE_INIT, ANNOTATION_DEF,                      ENUM_DEF, INTERFACE_DEF, RECORD_DEF, COMPACT_CTOR_DEF</li>
-												
-												<br/>
-											
-												option
-												
-													<li>alone</li>
+													<li>MagicNumber1</li>
 												
 												<br/>
 											
 										</td>
 										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">MagicNumber</td>
+										
+										<td class="c">
+											
+												ignoreAnnotation
+												
+													<li>true</li>
+												
+												<br/>
+											
+												ignoreNumbers
+												
+													<li>-1, 0, 1, 2</li>
+												
+												<br/>
+											
+												tokens
+												
+													<li>NUM_DOUBLE , NUM_FLOAT , NUM_INT , NUM_LONG </li>
+												
+												<br/>
+											
+												ignoreFieldDeclaration
+												
+													<li>true</li>
+												
+												<br/>
+											
+												id
+												
+													<li>MagicNumber2</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												ignoreAnnotation
+												
+													<li>true</li>
+												
+												<br/>
+											
+												ignoreNumbers
+												
+													<li>-1, 0, 1, 2</li>
+												
+												<br/>
+											
+												tokens
+												
+													<li>NUM_DOUBLE , NUM_FLOAT , NUM_INT , NUM_LONG </li>
+												
+												<br/>
+											
+												ignoreFieldDeclaration
+												
+													<li>true</li>
+												
+												<br/>
+											
+												id
+												
+													<li>MagicNumber2</li>
+												
+												<br/>
+											
+										</td>
 										
 									</tr>
 									
@@ -254,25 +319,25 @@
 						<tr class="b">
 							<td>base</td>
 							<td id="filesBase">2561</td>
-							<td id="totalBase">18427</td>
+							<td id="totalBase">48909</td>
 							
-								<td id="warningSeverityNumBase">18427</td>
+								<td id="warningSeverityNumBase">48909</td>
 							
 						</tr>
 						<tr class="a">
 							<td>patch</td>
 							<td id="filesPatch">2561</td>
-							<td id="totalPatch">18427</td>
+							<td id="totalPatch">48946 (37 added)</td>
 							
-								<td id="warningSeverityStatisticsPatch">18427</td>
+								<td id="warningSeverityStatisticsPatch">48946 (37 added)</td>
 							
 						</tr>
 						<tr class="d">
 							<td/>
-							<td id="filesDiff">0 files with differences</td>
-							<td id="totalDiff">0 changes in violations</td>
+							<td id="filesDiff">16 files with differences</td>
+							<td id="totalDiff">37 changes in violations</td>
 							
-								<td id="warningSeverityNumDiff">0 changes in violations</td>
+								<td id="warningSeverityNumDiff">37 changes in violations</td>
 							
 						<tr>
 					</table>
@@ -283,25 +348,33 @@
 							<tr class="a">
 								<th>Report id</th>
 								
-									<th>com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheck</th>
+									<th>MagicNumber2</th>
+								
+									<th>MagicNumber1</th>
 								
 							</tr>
 							<tr class="b">
 								<td>base</td>
 								
-									<td id="com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheckModuleNumBase">18427</td>
+									<td id="MagicNumber2ModuleNumBase">23776</td>
+								
+									<td id="MagicNumber1ModuleNumBase">25133</td>
 								
 							</tr>
 							<tr class="a">
 								<td>patch</td>
 								
-									<td id="com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheckModuleStatisticsPatch">18427</td>
+									<td id="MagicNumber2ModuleStatisticsPatch">23813 (37 added)</td>
+								
+									<td id="MagicNumber1ModuleStatisticsPatch">25133</td>
 								
 							</tr>
 							<tr class="d">
 								<td>changes in violations</td>
 								
-									<td id="com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheckModuleNumDiff">0</td>
+									<td id="MagicNumber2ModuleNumDiff">37</td>
+								
+									<td id="MagicNumber1ModuleNumDiff">0</td>
 								
 							<tr>
 						</table>
@@ -309,12 +382,865 @@
 
 					<br />
 					Number of unique base messages reported below: <span id="uniqueMessagesBase">0</span><br />
-					Number of unique patch messages reported below: <span id="uniqueMessagesPatch">0</span><br />
+					Number of unique patch messages reported below: <span id="uniqueMessagesPatch">37</span><br />
 				</div>
 			</div>
 
 			<div class="section">
 				<h2><a name="Violations" href="#Violations">Violations:</a></h2>
+				<div class="section">
+					<h3>/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/Hbase/hbase-client/src/test/java/org/apache/hadoop/hbase/TestRegionLocations.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A1" href = "#A1">#A1</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;10&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/Hbase/hbase-client/src/test/java/org/apache/hadoop/hbase/TestRegionLocations.java.html#L34">34</a></td>
+								
+								
+									
+									<td class="keepWidth">48</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A2" href = "#A2">#A2</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;10&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/Hbase/hbase-client/src/test/java/org/apache/hadoop/hbase/TestRegionLocations.java.html#L34">34</a></td>
+								
+								
+									
+									<td class="keepWidth">52</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A3" href = "#A3">#A3</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;10&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/Hbase/hbase-client/src/test/java/org/apache/hadoop/hbase/TestRegionLocations.java.html#L35">35</a></td>
+								
+								
+									
+									<td class="keepWidth">48</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A4" href = "#A4">#A4</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;10&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/Hbase/hbase-client/src/test/java/org/apache/hadoop/hbase/TestRegionLocations.java.html#L35">35</a></td>
+								
+								
+									
+									<td class="keepWidth">52</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A5" href = "#A5">#A5</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;10&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/Hbase/hbase-client/src/test/java/org/apache/hadoop/hbase/TestRegionLocations.java.html#L36">36</a></td>
+								
+								
+									
+									<td class="keepWidth">48</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A6" href = "#A6">#A6</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;10&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/Hbase/hbase-client/src/test/java/org/apache/hadoop/hbase/TestRegionLocations.java.html#L36">36</a></td>
+								
+								
+									
+									<td class="keepWidth">52</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A7" href = "#A7">#A7</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;10&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/Hbase/hbase-client/src/test/java/org/apache/hadoop/hbase/TestRegionLocations.java.html#L37">37</a></td>
+								
+								
+									
+									<td class="keepWidth">48</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A8" href = "#A8">#A8</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;10&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/Hbase/hbase-client/src/test/java/org/apache/hadoop/hbase/TestRegionLocations.java.html#L37">37</a></td>
+								
+								
+									
+									<td class="keepWidth">52</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A9" href = "#A9">#A9</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;9&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/Hbase/hbase-client/src/test/java/org/apache/hadoop/hbase/TestRegionLocations.java.html#L42">42</a></td>
+								
+								
+									
+									<td class="keepWidth">27</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/Hbase/hbase-client/src/test/java/org/apache/hadoop/hbase/client/TestAsyncProcess.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A10" href = "#A10">#A10</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;3&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/Hbase/hbase-client/src/test/java/org/apache/hadoop/hbase/client/TestAsyncProcess.java.html#L83">83</a></td>
+								
+								
+									
+									<td class="keepWidth">84</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A11" href = "#A11">#A11</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;10000&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/Hbase/hbase-client/src/test/java/org/apache/hadoop/hbase/client/TestAsyncProcess.java.html#L385">385</a></td>
+								
+								
+									
+									<td class="keepWidth">40</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/Hbase/hbase-client/src/test/java/org/apache/hadoop/hbase/client/TestOperation.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A12" href = "#A12">#A12</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;3L&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/Hbase/hbase-client/src/test/java/org/apache/hadoop/hbase/client/TestOperation.java.html#L81">81</a></td>
+								
+								
+									
+									<td class="keepWidth">57</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A13" href = "#A13">#A13</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;5L&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/Hbase/hbase-client/src/test/java/org/apache/hadoop/hbase/client/TestOperation.java.html#L81">81</a></td>
+								
+								
+									
+									<td class="keepWidth">61</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A14" href = "#A14">#A14</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;3L&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/Hbase/hbase-client/src/test/java/org/apache/hadoop/hbase/client/TestOperation.java.html#L87">87</a></td>
+								
+								
+									
+									<td class="keepWidth">33</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A15" href = "#A15">#A15</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;4L&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/Hbase/hbase-client/src/test/java/org/apache/hadoop/hbase/client/TestOperation.java.html#L87">87</a></td>
+								
+								
+									
+									<td class="keepWidth">37</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A16" href = "#A16">#A16</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;5L&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/Hbase/hbase-client/src/test/java/org/apache/hadoop/hbase/client/TestOperation.java.html#L87">87</a></td>
+								
+								
+									
+									<td class="keepWidth">41</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A17" href = "#A17">#A17</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;6L&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/Hbase/hbase-client/src/test/java/org/apache/hadoop/hbase/client/TestOperation.java.html#L87">87</a></td>
+								
+								
+									
+									<td class="keepWidth">45</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A18" href = "#A18">#A18</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;7L&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/Hbase/hbase-client/src/test/java/org/apache/hadoop/hbase/client/TestOperation.java.html#L87">87</a></td>
+								
+								
+									
+									<td class="keepWidth">49</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A19" href = "#A19">#A19</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;8L&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/Hbase/hbase-client/src/test/java/org/apache/hadoop/hbase/client/TestOperation.java.html#L87">87</a></td>
+								
+								
+									
+									<td class="keepWidth">53</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A20" href = "#A20">#A20</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;9L&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/Hbase/hbase-client/src/test/java/org/apache/hadoop/hbase/client/TestOperation.java.html#L87">87</a></td>
+								
+								
+									
+									<td class="keepWidth">57</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A21" href = "#A21">#A21</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;10L&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/Hbase/hbase-client/src/test/java/org/apache/hadoop/hbase/client/TestOperation.java.html#L87">87</a></td>
+								
+								
+									
+									<td class="keepWidth">61</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/Hbase/hbase-common/src/test/java/org/apache/hadoop/hbase/util/TestLoadTestKVGenerator.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A22" href = "#A22">#A22</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;28937293L&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/Hbase/hbase-common/src/test/java/org/apache/hadoop/hbase/util/TestLoadTestKVGenerator.java.html#L38">38</a></td>
+								
+								
+									
+									<td class="keepWidth">36</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/Hbase/hbase-it/src/test/java/org/apache/hadoop/hbase/mttr/IntegrationTestMTTR.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A23" href = "#A23">#A23</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;10&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/Hbase/hbase-it/src/test/java/org/apache/hadoop/hbase/mttr/IntegrationTestMTTR.java.html#L361">361</a></td>
+								
+								
+									
+									<td class="keepWidth">50</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/Hbase/hbase-prefix-tree/src/test/java/org/apache/hadoop/hbase/codec/prefixtree/row/data/TestRowDataUrlsExample.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A24" href = "#A24">#A24</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;95322&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/Hbase/hbase-prefix-tree/src/test/java/org/apache/hadoop/hbase/codec/prefixtree/row/data/TestRowDataUrlsExample.java.html#L44">44</a></td>
+								
+								
+									
+									<td class="keepWidth">46</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A25" href = "#A25">#A25</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;12&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/Hbase/hbase-prefix-tree/src/test/java/org/apache/hadoop/hbase/codec/prefixtree/row/data/TestRowDataUrlsExample.java.html#L45">45</a></td>
+								
+								
+									
+									<td class="keepWidth">43</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/Hbase/hbase-server/src/main/java/org/apache/hadoop/hbase/ipc/RpcServer.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A26" href = "#A26">#A26</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;4&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/Hbase/hbase-server/src/main/java/org/apache/hadoop/hbase/ipc/RpcServer.java.html#L1220">1220</a></td>
+								
+								
+									
+									<td class="keepWidth">72</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/Hbase/hbase-server/src/main/java/org/apache/hadoop/hbase/regionserver/HRegionServer.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A27" href = "#A27">#A27</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;3000&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/Hbase/hbase-server/src/main/java/org/apache/hadoop/hbase/regionserver/HRegionServer.java.html#L2993">2993</a></td>
+								
+								
+									
+									<td class="keepWidth">54</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/Hbase/hbase-server/src/main/java/org/apache/hadoop/hbase/util/RegionSplitter.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A28" href = "#A28">#A28</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;16&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/Hbase/hbase-server/src/main/java/org/apache/hadoop/hbase/util/RegionSplitter.java.html#L894">894</a></td>
+								
+								
+									
+									<td class="keepWidth">53</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/Hbase/hbase-server/src/test/java/org/apache/hadoop/hbase/io/encoding/TestDataBlockEncoders.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A29" href = "#A29">#A29</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;42l&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/Hbase/hbase-server/src/test/java/org/apache/hadoop/hbase/io/encoding/TestDataBlockEncoders.java.html#L67">67</a></td>
+								
+								
+									
+									<td class="keepWidth">42</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/Hbase/hbase-server/src/test/java/org/apache/hadoop/hbase/io/hfile/TestCacheOnWrite.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A30" href = "#A30">#A30</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;12983177L&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/Hbase/hbase-server/src/test/java/org/apache/hadoop/hbase/io/hfile/TestCacheOnWrite.java.html#L84">84</a></td>
+								
+								
+									
+									<td class="keepWidth">36</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/Hbase/hbase-server/src/test/java/org/apache/hadoop/hbase/replication/TestReplicationStateBasic.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A31" href = "#A31">#A31</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;1234&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/Hbase/hbase-server/src/test/java/org/apache/hadoop/hbase/replication/TestReplicationStateBasic.java.html#L44">44</a></td>
+								
+								
+									
+									<td class="keepWidth">74</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A32" href = "#A32">#A32</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;1234&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/Hbase/hbase-server/src/test/java/org/apache/hadoop/hbase/replication/TestReplicationStateBasic.java.html#L45">45</a></td>
+								
+								
+									
+									<td class="keepWidth">74</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A33" href = "#A33">#A33</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;1234&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/Hbase/hbase-server/src/test/java/org/apache/hadoop/hbase/replication/TestReplicationStateBasic.java.html#L46">46</a></td>
+								
+								
+									
+									<td class="keepWidth">74</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/Hbase/hbase-server/src/test/java/org/apache/hadoop/hbase/util/hbck/HbckTestingUtil.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A34" href = "#A34">#A34</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;10&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/Hbase/hbase-server/src/test/java/org/apache/hadoop/hbase/util/hbck/HbckTestingUtil.java.html#L35">35</a></td>
+								
+								
+									
+									<td class="keepWidth">73</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/Hbase/hbase-thrift/src/test/java/org/apache/hadoop/hbase/thrift/TestThriftServer.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A35" href = "#A35">#A35</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;100l&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/Hbase/hbase-thrift/src/test/java/org/apache/hadoop/hbase/thrift/TestThriftServer.java.html#L94">94</a></td>
+								
+								
+									
+									<td class="keepWidth">55</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/Hbase/hbase-thrift/src/test/java/org/apache/hadoop/hbase/thrift2/TestThriftHBaseServiceHandler.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A36" href = "#A36">#A36</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;3&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/Hbase/hbase-thrift/src/test/java/org/apache/hadoop/hbase/thrift2/TestThriftHBaseServiceHandler.java.html#L103">103</a></td>
+								
+								
+									
+									<td class="keepWidth">57</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/Hbase/hbase-thrift/src/test/java/org/apache/hadoop/hbase/thrift2/TestThriftHBaseServiceHandlerWithLabels.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A37" href = "#A37">#A37</a></td>
+								<td>warning</td>
+								<td>MagicNumber2</td>
+								<td>&#39;3&#39; is a magic number.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/kevin/Desktop/check_style/checkstyle/contribution/checkstyle-tester/repositories/Hbase/hbase-thrift/src/test/java/org/apache/hadoop/hbase/thrift2/TestThriftHBaseServiceHandlerWithLabels.java.html#L89">89</a></td>
+								
+								
+									
+									<td class="keepWidth">55</td>
+								
+							</tr>
+						
+					</table>
+				</div>
 			</div>
 		</div>
 	</body>
