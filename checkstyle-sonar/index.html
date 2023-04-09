@@ -122,14 +122,255 @@
 									
 										
 									<tr>
-										<td class="c">UnnecessaryParentheses</td>
+										<td class="c">FallThrough</td>
 										
 										<td class="c">
+											
+												id
+												
+													<li>Fall1</li>
+												
+												<br/>
 											
 										</td>
 										
 										
 										<td class="c">
+											
+												id
+												
+													<li>Fall1</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">FallThrough</td>
+										
+										<td class="c">
+											
+												id
+												
+													<li>Fall2</li>
+												
+												<br/>
+											
+												checkLastCaseGroup
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												id
+												
+													<li>Fall2</li>
+												
+												<br/>
+											
+												checkLastCaseGroup
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">FallThrough</td>
+										
+										<td class="c">
+											
+												id
+												
+													<li>Fall3</li>
+												
+												<br/>
+											
+												checkLastCaseGroup
+												
+													<li>true</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												id
+												
+													<li>Fall3</li>
+												
+												<br/>
+											
+												checkLastCaseGroup
+												
+													<li>true</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">FallThrough</td>
+										
+										<td class="c">
+											
+												id
+												
+													<li>Fall4</li>
+												
+												<br/>
+											
+												reliefPattern
+												
+													<li>FALL?[ -]?THROUGH</li>
+												
+												<br/>
+											
+												checkLastCaseGroup
+												
+													<li>true</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												id
+												
+													<li>Fall4</li>
+												
+												<br/>
+											
+												reliefPattern
+												
+													<li>FALL?[ -]?THROUGH</li>
+												
+												<br/>
+											
+												checkLastCaseGroup
+												
+													<li>true</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">FallThrough</td>
+										
+										<td class="c">
+											
+												id
+												
+													<li>Fall5</li>
+												
+												<br/>
+											
+												reliefPattern
+												
+													<li>FALL?[ -]?THROUGH</li>
+												
+												<br/>
+											
+												checkLastCaseGroup
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												id
+												
+													<li>Fall5</li>
+												
+												<br/>
+											
+												reliefPattern
+												
+													<li>FALL?[ -]?THROUGH</li>
+												
+												<br/>
+											
+												checkLastCaseGroup
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">FallThrough</td>
+										
+										<td class="c">
+											
+												id
+												
+													<li>Fall6</li>
+												
+												<br/>
+											
+												reliefPattern
+												
+													<li>FALL?[ -]?THROUGH</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												id
+												
+													<li>Fall6</li>
+												
+												<br/>
+											
+												reliefPattern
+												
+													<li>FALL?[ -]?THROUGH</li>
+												
+												<br/>
 											
 										</td>
 										
@@ -224,17 +465,23 @@
 							<th>Files</th>
 							<th>Violations</th>
 							
+								<th>Severity-warning</th>
+							
 						</tr>
 						<tr class="b">
 							<td>base</td>
 							<td id="filesBase">36</td>
-							<td id="totalBase">0</td>
+							<td id="totalBase">2</td>
+							
+								<td id="warningSeverityNumBase">2</td>
 							
 						</tr>
 						<tr class="a">
 							<td>patch</td>
 							<td id="filesPatch">36</td>
-							<td id="totalPatch">0</td>
+							<td id="totalPatch">2</td>
+							
+								<td id="warningSeverityStatisticsPatch">2</td>
 							
 						</tr>
 						<tr class="d">
@@ -242,9 +489,47 @@
 							<td id="filesDiff">0 files with differences</td>
 							<td id="totalDiff">0 changes in violations</td>
 							
+								<td id="warningSeverityNumDiff">0 changes in violations</td>
+							
 						<tr>
 					</table>
 
+					
+						<br />
+						<table border="0" class="bodyTable">
+							<tr class="a">
+								<th>Report id</th>
+								
+									<th>Fall3</th>
+								
+									<th>Fall4</th>
+								
+							</tr>
+							<tr class="b">
+								<td>base</td>
+								
+									<td id="Fall3ModuleNumBase">1</td>
+								
+									<td id="Fall4ModuleNumBase">1</td>
+								
+							</tr>
+							<tr class="a">
+								<td>patch</td>
+								
+									<td id="Fall3ModuleStatisticsPatch">1</td>
+								
+									<td id="Fall4ModuleStatisticsPatch">1</td>
+								
+							</tr>
+							<tr class="d">
+								<td>changes in violations</td>
+								
+									<td id="Fall3ModuleNumDiff">0</td>
+								
+									<td id="Fall4ModuleNumDiff">0</td>
+								
+							<tr>
+						</table>
 					
 
 					<br />
