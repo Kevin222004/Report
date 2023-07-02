@@ -1,0 +1,814 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>JavadocTypeCheck.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">checkstyle</a> &gt; <a href="index.source.html" class="el_package">com.puppycrawl.tools.checkstyle.checks.javadoc</a> &gt; <span class="el_source">JavadocTypeCheck.java</span></div><h1>JavadocTypeCheck.java</h1><pre class="source lang-java linenums">///////////////////////////////////////////////////////////////////////////////////////////////
+// checkstyle: Checks Java source code and other text files for adherence to a set of rules.
+// Copyright (C) 2001-2023 the original author or authors.
+//
+// This library is free software; you can redistribute it and/or
+// modify it under the terms of the GNU Lesser General Public
+// License as published by the Free Software Foundation; either
+// version 2.1 of the License, or (at your option) any later version.
+//
+// This library is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+// Lesser General Public License for more details.
+//
+// You should have received a copy of the GNU Lesser General Public
+// License along with this library; if not, write to the Free Software
+// Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+///////////////////////////////////////////////////////////////////////////////////////////////
+
+package com.puppycrawl.tools.checkstyle.checks.javadoc;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import com.puppycrawl.tools.checkstyle.StatelessCheck;
+import com.puppycrawl.tools.checkstyle.api.AbstractCheck;
+import com.puppycrawl.tools.checkstyle.api.DetailAST;
+import com.puppycrawl.tools.checkstyle.api.FileContents;
+import com.puppycrawl.tools.checkstyle.api.Scope;
+import com.puppycrawl.tools.checkstyle.api.TextBlock;
+import com.puppycrawl.tools.checkstyle.api.TokenTypes;
+import com.puppycrawl.tools.checkstyle.utils.AnnotationUtil;
+import com.puppycrawl.tools.checkstyle.utils.CheckUtil;
+import com.puppycrawl.tools.checkstyle.utils.CommonUtil;
+import com.puppycrawl.tools.checkstyle.utils.JavadocUtil;
+import com.puppycrawl.tools.checkstyle.utils.ScopeUtil;
+import com.puppycrawl.tools.checkstyle.utils.TokenUtil;
+
+/**
+ * &lt;p&gt;
+ * Checks the Javadoc comments for type definitions. By default, does
+ * not check for author or version tags. The scope to verify is specified using the {@code Scope}
+ * class and defaults to {@code Scope.PRIVATE}. To verify another scope, set property
+ * scope to one of the {@code Scope} constants. To define the format for an author
+ * tag or a version tag, set property authorFormat or versionFormat respectively to a
+ * &lt;a href=&quot;https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html&quot;&gt;
+ * pattern&lt;/a&gt;.
+ * &lt;/p&gt;
+ * &lt;p&gt;
+ * Does not perform checks for author and version tags for inner classes,
+ * as they should be redundant because of outer class.
+ * &lt;/p&gt;
+ * &lt;p&gt;
+ * Does not perform checks for type definitions that do not have any Javadoc comments.
+ * &lt;/p&gt;
+ * &lt;p&gt;
+ * Error messages about type parameters and record components for which no param tags are present
+ * can be suppressed by defining property {@code allowMissingParamTags}.
+ * &lt;/p&gt;
+ * &lt;ul&gt;
+ * &lt;li&gt;
+ * Property {@code scope} - Specify the visibility scope where Javadoc comments are checked.
+ * Type is {@code com.puppycrawl.tools.checkstyle.api.Scope}.
+ * Default value is {@code private}.
+ * &lt;/li&gt;
+ * &lt;li&gt;
+ * Property {@code excludeScope} - Specify the visibility scope where Javadoc
+ * comments are not checked.
+ * Type is {@code com.puppycrawl.tools.checkstyle.api.Scope}.
+ * Default value is {@code null}.
+ * &lt;/li&gt;
+ * &lt;li&gt;
+ * Property {@code authorFormat} - Specify the pattern for {@code @author} tag.
+ * Type is {@code java.util.regex.Pattern}.
+ * Default value is {@code null}.
+ * &lt;/li&gt;
+ * &lt;li&gt;
+ * Property {@code versionFormat} - Specify the pattern for {@code @version} tag.
+ * Type is {@code java.util.regex.Pattern}.
+ * Default value is {@code null}.
+ * &lt;/li&gt;
+ * &lt;li&gt;
+ * Property {@code allowMissingParamTags} - Control whether to ignore violations
+ * when a class has type parameters but does not have matching param tags in the Javadoc.
+ * Type is {@code boolean}.
+ * Default value is {@code false}.
+ * &lt;/li&gt;
+ * &lt;li&gt;
+ * Property {@code allowUnknownTags} - Control whether to ignore violations when
+ * a Javadoc tag is not recognised.
+ * Type is {@code boolean}.
+ * Default value is {@code false}.
+ * &lt;/li&gt;
+ * &lt;li&gt;
+ * Property {@code allowedAnnotations} - Specify annotations that allow
+ * skipping validation at all. Only short names are allowed, e.g. {@code Generated}.
+ * Type is {@code java.lang.String[]}.
+ * Default value is {@code Generated}.
+ * &lt;/li&gt;
+ * &lt;li&gt;
+ * Property {@code tokens} - tokens to check
+ * Type is {@code java.lang.String[]}.
+ * Validation type is {@code tokenSet}.
+ * Default value is:
+ * &lt;a href=&quot;https://checkstyle.org/apidocs/com/puppycrawl/tools/checkstyle/api/TokenTypes.html#INTERFACE_DEF&quot;&gt;
+ * INTERFACE_DEF&lt;/a&gt;,
+ * &lt;a href=&quot;https://checkstyle.org/apidocs/com/puppycrawl/tools/checkstyle/api/TokenTypes.html#CLASS_DEF&quot;&gt;
+ * CLASS_DEF&lt;/a&gt;,
+ * &lt;a href=&quot;https://checkstyle.org/apidocs/com/puppycrawl/tools/checkstyle/api/TokenTypes.html#ENUM_DEF&quot;&gt;
+ * ENUM_DEF&lt;/a&gt;,
+ * &lt;a href=&quot;https://checkstyle.org/apidocs/com/puppycrawl/tools/checkstyle/api/TokenTypes.html#ANNOTATION_DEF&quot;&gt;
+ * ANNOTATION_DEF&lt;/a&gt;,
+ * &lt;a href=&quot;https://checkstyle.org/apidocs/com/puppycrawl/tools/checkstyle/api/TokenTypes.html#RECORD_DEF&quot;&gt;
+ * RECORD_DEF&lt;/a&gt;.
+ * &lt;/li&gt;
+ * &lt;/ul&gt;
+ * &lt;p&gt;
+ * To configure the default check:
+ * &lt;/p&gt;
+ * &lt;pre&gt;
+ * &amp;lt;module name=&quot;JavadocType&quot;/&amp;gt;
+ * &lt;/pre&gt;
+ * &lt;p&gt;
+ * Example:
+ * &lt;/p&gt;
+ * &lt;pre&gt;
+ * &amp;#47;**
+ *  * &amp;#64;author a
+ *  * &amp;#64;version $Revision1$
+ *  *&amp;#47;
+ * public class ClassA { // OK
+ *     &amp;#47;** *&amp;#47;
+ *     private class ClassB {} // OK
+ * }
+ *
+ * &amp;#47;**
+ *  * &amp;#64;author
+ *  * &amp;#64;version abc
+ *  * &amp;#64;unknownTag value // violation
+ *  *&amp;#47;
+ * public class ClassC {} // OK
+ *
+ * &amp;#47;** *&amp;#47;
+ * public class ClassD&amp;lt;T&amp;gt; {} // violation, as param tag for &amp;lt;T&amp;gt; is missing
+ *
+ * &amp;#47;** *&amp;#47;
+ * private class ClassE&amp;lt;T&amp;gt; {} // violation, as param tag for &amp;lt;T&amp;gt; is missing
+ *
+ * &amp;#47;** *&amp;#47;
+ * &amp;#64;Generated
+ * public class ClassF&amp;lt;T&amp;gt; {} // OK
+ * &lt;/pre&gt;
+ * &lt;p&gt;
+ * To configure the check for {@code public} scope:
+ * &lt;/p&gt;
+ * &lt;pre&gt;
+ * &amp;lt;module name=&quot;JavadocType&quot;&amp;gt;
+ *   &amp;lt;property name=&quot;scope&quot; value=&quot;public&quot;/&amp;gt;
+ * &amp;lt;/module&amp;gt;
+ * &lt;/pre&gt;
+ * &lt;p&gt;
+ * Example:
+ * &lt;/p&gt;
+ * &lt;pre&gt;
+ * &amp;#47;**
+ *  * &amp;#64;author a
+ *  * &amp;#64;version $Revision1$
+ *  *&amp;#47;
+ * public class ClassA { // OK
+ *     &amp;#47;** *&amp;#47;
+ *     private class ClassB {} // OK
+ * }
+ *
+ * &amp;#47;**
+ *  * &amp;#64;author
+ *  * &amp;#64;version abc
+ *  * &amp;#64;unknownTag value // violation
+ *  *&amp;#47;
+ * public class ClassC {} // OK
+ *
+ * &amp;#47;** *&amp;#47;
+ * public class ClassD&amp;lt;T&amp;gt; {} // violation, as param tag for &amp;lt;T&amp;gt; is missing
+ *
+ * &amp;#47;** *&amp;#47;
+ * private class ClassE&amp;lt;T&amp;gt; {} // OK
+ *
+ * &amp;#47;** *&amp;#47;
+ * &amp;#64;Generated
+ * public class ClassF&amp;lt;T&amp;gt; {} // OK
+ * &lt;/pre&gt;
+ * &lt;p&gt;
+ * To configure the check for an {@code @author} tag:
+ * &lt;/p&gt;
+ * &lt;pre&gt;
+ * &amp;lt;module name=&quot;JavadocType&quot;&amp;gt;
+ *   &amp;lt;property name=&quot;authorFormat&quot; value=&quot;\S&quot;/&amp;gt;
+ * &amp;lt;/module&amp;gt;
+ * &lt;/pre&gt;
+ * &lt;p&gt;
+ * Example:
+ * &lt;/p&gt;
+ * &lt;pre&gt;
+ * &amp;#47;**
+ *  * &amp;#64;author a
+ *  * &amp;#64;version $Revision1$
+ *  *&amp;#47;
+ * public class ClassA { // OK
+ *     &amp;#47;** *&amp;#47;
+ *     private class ClassB {} // OK, as author tag check is ignored for inner class
+ * }
+ *
+ * &amp;#47;**
+ *  * &amp;#64;author
+ *  * &amp;#64;version abc
+ *  * &amp;#64;unknownTag value // violation
+ *  *&amp;#47;
+ * public class ClassC {} // violation, as author format with only whitespace or new line is invalid
+ *
+ * &amp;#47;** *&amp;#47;
+ * public class ClassD {} // violation, as author tag is missing
+ *
+ * &amp;#47;** *&amp;#47;
+ * private class ClassE {} // violation, as author tag is missing
+ *
+ * &amp;#47;** *&amp;#47;
+ * &amp;#64;Generated
+ * public class ClassF&amp;lt;T&amp;gt; {} // OK
+ * &lt;/pre&gt;
+ * &lt;p&gt;
+ * To configure the check for a CVS revision version tag:
+ * &lt;/p&gt;
+ * &lt;pre&gt;
+ * &amp;lt;module name=&quot;JavadocType&quot;&amp;gt;
+ *   &amp;lt;property name=&quot;versionFormat&quot; value=&quot;\$Revision.*\$&quot;/&amp;gt;
+ * &amp;lt;/module&amp;gt;
+ * &lt;/pre&gt;
+ * &lt;p&gt;
+ * Example:
+ * &lt;/p&gt;
+ * &lt;pre&gt;
+ * &amp;#47;**
+ *  * &amp;#64;author a
+ *  * &amp;#64;version $Revision1$
+ *  *&amp;#47;
+ * public class ClassA { // OK
+ *     &amp;#47;** *&amp;#47;
+ *     private class ClassB {} // OK, as version tag check is ignored for inner class
+ * }
+ *
+ * &amp;#47;**
+ *  * &amp;#64;author
+ *  * &amp;#64;version abc
+ *  * &amp;#64;unknownTag value // violation
+ *  *&amp;#47;
+ * public class ClassC {} // violation, as version format is invalid
+ *
+ * &amp;#47;** *&amp;#47;
+ * public class ClassD {} // violation, as version tag is missing
+ *
+ * &amp;#47;** *&amp;#47;
+ * private class ClassE {} // violation, as version tag is missing
+ *
+ * &amp;#47;** *&amp;#47;
+ * &amp;#64;Generated
+ * public class ClassF&amp;lt;T&amp;gt; {} // OK
+ * &lt;/pre&gt;
+ * &lt;p&gt;
+ * To configure the check for {@code private} classes only:
+ * &lt;/p&gt;
+ * &lt;pre&gt;
+ * &amp;lt;module name=&quot;JavadocType&quot;&amp;gt;
+ *   &amp;lt;property name=&quot;scope&quot; value=&quot;private&quot;/&amp;gt;
+ *   &amp;lt;property name=&quot;excludeScope&quot; value=&quot;package&quot;/&amp;gt;
+ * &amp;lt;/module&amp;gt;
+ * &lt;/pre&gt;
+ * &lt;p&gt;
+ * Example:
+ * &lt;/p&gt;
+ * &lt;pre&gt;
+ * &amp;#47;**
+ *  * &amp;#64;author a
+ *  * &amp;#64;version $Revision1$
+ *  *&amp;#47;
+ * public class ClassA { // OK
+ *     &amp;#47;** *&amp;#47;
+ *     private class ClassB {} // OK
+ * }
+ *
+ * &amp;#47;**
+ *  * &amp;#64;author
+ *  * &amp;#64;version abc
+ *  * &amp;#64;unknownTag value // OK
+ *  *&amp;#47;
+ * public class ClassC {} // OK
+ *
+ * &amp;#47;** *&amp;#47;
+ * public class ClassD&amp;lt;T&amp;gt; {} // OK
+ *
+ * &amp;#47;** *&amp;#47;
+ * private class ClassE&amp;lt;T&amp;gt; {} // violation, as param tag for &amp;lt;T&amp;gt; is missing
+ *
+ * &amp;#47;** *&amp;#47;
+ * &amp;#64;Generated
+ * public class ClassF&amp;lt;T&amp;gt; {} // OK
+ * &lt;/pre&gt;
+ * &lt;p&gt;
+ * To configure the check that allows missing {@code @param} tags:
+ * &lt;/p&gt;
+ * &lt;pre&gt;
+ * &amp;lt;module name=&quot;JavadocType&quot;&amp;gt;
+ *   &amp;lt;property name=&quot;allowMissingParamTags&quot; value=&quot;true&quot;/&amp;gt;
+ * &amp;lt;/module&amp;gt;
+ * &lt;/pre&gt;
+ * &lt;p&gt;
+ * Example:
+ * &lt;/p&gt;
+ * &lt;pre&gt;
+ * &amp;#47;**
+ *  * &amp;#64;author a
+ *  * &amp;#64;version $Revision1$
+ *  *&amp;#47;
+ * public class ClassA { // OK
+ *     &amp;#47;** *&amp;#47;
+ *     private class ClassB {} // OK
+ * }
+ *
+ * &amp;#47;**
+ *  * &amp;#64;author
+ *  * &amp;#64;version abc
+ *  * &amp;#64;unknownTag value // violation
+ *  *&amp;#47;
+ * public class ClassC {} // OK
+ *
+ * &amp;#47;** *&amp;#47;
+ * public class ClassD&amp;lt;T&amp;gt; {} // OK, as missing param tag is allowed
+ *
+ * &amp;#47;** *&amp;#47;
+ * private class ClassE&amp;lt;T&amp;gt; {} // OK, as missing param tag is allowed
+ *
+ * &amp;#47;** *&amp;#47;
+ * &amp;#64;Generated
+ * public class ClassF&amp;lt;T&amp;gt; {} // OK
+ * &lt;/pre&gt;
+ * &lt;p&gt;
+ * To configure the check that allows unknown tags:
+ * &lt;/p&gt;
+ * &lt;pre&gt;
+ * &amp;lt;module name=&quot;JavadocType&quot;&amp;gt;
+ *   &amp;lt;property name=&quot;allowUnknownTags&quot; value=&quot;true&quot;/&amp;gt;
+ * &amp;lt;/module&amp;gt;
+ * &lt;/pre&gt;
+ * &lt;p&gt;
+ * Example:
+ * &lt;/p&gt;
+ * &lt;pre&gt;
+ * &amp;#47;**
+ *  * &amp;#64;author a
+ *  * &amp;#64;version $Revision1$
+ *  *&amp;#47;
+ * public class ClassA { // OK
+ *     &amp;#47;** *&amp;#47;
+ *     private class ClassB {} // OK
+ * }
+ *
+ * &amp;#47;**
+ *  * &amp;#64;author
+ *  * &amp;#64;version abc
+ *  * &amp;#64;unknownTag value // OK, as unknown tag is allowed
+ *  *&amp;#47;
+ * public class ClassC {} // OK
+ *
+ * &amp;#47;** *&amp;#47;
+ * public class ClassD {} // OK
+ *
+ * &amp;#47;** *&amp;#47;
+ * private class ClassE {} // OK
+ *
+ * &amp;#47;** *&amp;#47;
+ * &amp;#64;Generated
+ * public class ClassF&amp;lt;T&amp;gt; {} // OK
+ * &lt;/pre&gt;
+ * &lt;p&gt;
+ * To configure a check that allows skipping validation at all for classes annotated
+ * with {@code @SpringBootApplication} and {@code @Configuration}:
+ * &lt;/p&gt;
+ * &lt;pre&gt;
+ * &amp;lt;module name=&quot;JavadocType&quot;&amp;gt;
+ *   &amp;lt;property name=&quot;allowedAnnotations&quot; value=&quot;SpringBootApplication,Configuration&quot;/&amp;gt;
+ * &amp;lt;/module&amp;gt;
+ * &lt;/pre&gt;
+ * &lt;p&gt;
+ * Example:
+ * &lt;/p&gt;
+ * &lt;pre&gt;
+ * &amp;#47;** *&amp;#47;
+ * &amp;#64;SpringBootApplication // no violations about missing param tag on class
+ * public class Application&amp;lt;T&amp;gt; {}
+ *
+ * &amp;#47;** *&amp;#47;
+ * &amp;#64;Configuration // no violations about missing param tag on class
+ * class DatabaseConfiguration&amp;lt;T&amp;gt; {}
+ * &lt;/pre&gt;
+ * &lt;p&gt;
+ * Parent is {@code com.puppycrawl.tools.checkstyle.TreeWalker}
+ * &lt;/p&gt;
+ * &lt;p&gt;
+ * Violation Message Keys:
+ * &lt;/p&gt;
+ * &lt;ul&gt;
+ * &lt;li&gt;
+ * {@code javadoc.unknownTag}
+ * &lt;/li&gt;
+ * &lt;li&gt;
+ * {@code javadoc.unusedTag}
+ * &lt;/li&gt;
+ * &lt;li&gt;
+ * {@code javadoc.unusedTagGeneral}
+ * &lt;/li&gt;
+ * &lt;li&gt;
+ * {@code type.missingTag}
+ * &lt;/li&gt;
+ * &lt;li&gt;
+ * {@code type.tagFormat}
+ * &lt;/li&gt;
+ * &lt;/ul&gt;
+ *
+ * @since 3.0
+ *
+ */
+@StatelessCheck
+<span class="fc" id="L435">public class JavadocTypeCheck</span>
+    extends AbstractCheck {
+
+    /**
+     * A key is pointing to the warning message text in &quot;messages.properties&quot;
+     * file.
+     */
+    public static final String MSG_UNKNOWN_TAG = &quot;javadoc.unknownTag&quot;;
+
+    /**
+     * A key is pointing to the warning message text in &quot;messages.properties&quot;
+     * file.
+     */
+    public static final String MSG_TAG_FORMAT = &quot;type.tagFormat&quot;;
+
+    /**
+     * A key is pointing to the warning message text in &quot;messages.properties&quot;
+     * file.
+     */
+    public static final String MSG_MISSING_TAG = &quot;type.missingTag&quot;;
+
+    /**
+     * A key is pointing to the warning message text in &quot;messages.properties&quot;
+     * file.
+     */
+    public static final String MSG_UNUSED_TAG = &quot;javadoc.unusedTag&quot;;
+
+    /**
+     * A key is pointing to the warning message text in &quot;messages.properties&quot;
+     * file.
+     */
+    public static final String MSG_UNUSED_TAG_GENERAL = &quot;javadoc.unusedTagGeneral&quot;;
+
+    /** Open angle bracket literal. */
+    private static final String OPEN_ANGLE_BRACKET = &quot;&lt;&quot;;
+
+    /** Close angle bracket literal. */
+    private static final String CLOSE_ANGLE_BRACKET = &quot;&gt;&quot;;
+
+    /** Space literal. */
+    private static final String SPACE = &quot; &quot;;
+
+    /** Pattern to match type name within angle brackets in javadoc param tag. */
+<span class="fc" id="L478">    private static final Pattern TYPE_NAME_IN_JAVADOC_TAG =</span>
+<span class="fc" id="L479">            Pattern.compile(&quot;\\s*&lt;([^&gt;]+)&gt;.*&quot;);</span>
+
+    /** Pattern to split type name field in javadoc param tag. */
+<span class="fc" id="L482">    private static final Pattern TYPE_NAME_IN_JAVADOC_TAG_SPLITTER =</span>
+<span class="fc" id="L483">            Pattern.compile(&quot;\\s+&quot;);</span>
+
+    /** Specify the visibility scope where Javadoc comments are checked. */
+<span class="fc" id="L486">    private Scope scope = Scope.PRIVATE;</span>
+    /** Specify the visibility scope where Javadoc comments are not checked. */
+    private Scope excludeScope;
+    /** Specify the pattern for {@code @author} tag. */
+    private Pattern authorFormat;
+    /** Specify the pattern for {@code @version} tag. */
+    private Pattern versionFormat;
+    /**
+     * Control whether to ignore violations when a class has type parameters but
+     * does not have matching param tags in the Javadoc.
+     */
+    private boolean allowMissingParamTags;
+    /** Control whether to ignore violations when a Javadoc tag is not recognised. */
+    private boolean allowUnknownTags;
+
+    /**
+     * Specify annotations that allow skipping validation at all.
+     * Only short names are allowed, e.g. {@code Generated}.
+     */
+<span class="fc" id="L505">    private Set&lt;String&gt; allowedAnnotations = Set.of(&quot;Generated&quot;);</span>
+
+    /**
+     * Setter to specify the visibility scope where Javadoc comments are checked.
+     *
+     * @param scope a scope.
+     */
+    public void setScope(Scope scope) {
+<span class="fc" id="L513">        this.scope = scope;</span>
+<span class="fc" id="L514">    }</span>
+
+    /**
+     * Setter to specify the visibility scope where Javadoc comments are not checked.
+     *
+     * @param excludeScope a scope.
+     */
+    public void setExcludeScope(Scope excludeScope) {
+<span class="fc" id="L522">        this.excludeScope = excludeScope;</span>
+<span class="fc" id="L523">    }</span>
+
+    /**
+     * Setter to specify the pattern for {@code @author} tag.
+     *
+     * @param pattern a pattern.
+     */
+    public void setAuthorFormat(Pattern pattern) {
+<span class="fc" id="L531">        authorFormat = pattern;</span>
+<span class="fc" id="L532">    }</span>
+
+    /**
+     * Setter to specify the pattern for {@code @version} tag.
+     *
+     * @param pattern a pattern.
+     */
+    public void setVersionFormat(Pattern pattern) {
+<span class="fc" id="L540">        versionFormat = pattern;</span>
+<span class="fc" id="L541">    }</span>
+
+    /**
+     * Setter to control whether to ignore violations when a class has type parameters but
+     * does not have matching param tags in the Javadoc.
+     *
+     * @param flag a {@code Boolean} value
+     */
+    public void setAllowMissingParamTags(boolean flag) {
+<span class="fc" id="L550">        allowMissingParamTags = flag;</span>
+<span class="fc" id="L551">    }</span>
+
+    /**
+     * Setter to control whether to ignore violations when a Javadoc tag is not recognised.
+     *
+     * @param flag a {@code Boolean} value
+     */
+    public void setAllowUnknownTags(boolean flag) {
+<span class="fc" id="L559">        allowUnknownTags = flag;</span>
+<span class="fc" id="L560">    }</span>
+
+    /**
+     * Setter to specify annotations that allow skipping validation at all.
+     * Only short names are allowed, e.g. {@code Generated}.
+     *
+     * @param userAnnotations user's value.
+     */
+    public void setAllowedAnnotations(String... userAnnotations) {
+<span class="fc" id="L569">        allowedAnnotations = Set.of(userAnnotations);</span>
+<span class="fc" id="L570">    }</span>
+
+    @Override
+    public int[] getDefaultTokens() {
+<span class="fc" id="L574">        return getAcceptableTokens();</span>
+    }
+
+    @Override
+    public int[] getAcceptableTokens() {
+<span class="fc" id="L579">        return new int[] {</span>
+            TokenTypes.INTERFACE_DEF,
+            TokenTypes.CLASS_DEF,
+            TokenTypes.ENUM_DEF,
+            TokenTypes.ANNOTATION_DEF,
+            TokenTypes.RECORD_DEF,
+        };
+    }
+
+    @Override
+    public int[] getRequiredTokens() {
+<span class="fc" id="L590">        return CommonUtil.EMPTY_INT_ARRAY;</span>
+    }
+
+    // suppress deprecation until https://github.com/checkstyle/checkstyle/issues/11166
+    @SuppressWarnings(&quot;deprecation&quot;)
+    @Override
+    public void visitToken(DetailAST ast) {
+<span class="fc bfc" id="L597" title="All 2 branches covered.">        if (shouldCheck(ast)) {</span>
+<span class="fc" id="L598">            final FileContents contents = getFileContents();</span>
+<span class="fc" id="L599">            final int lineNo = ast.getLineNo();</span>
+<span class="fc" id="L600">            final TextBlock textBlock = contents.getJavadocBefore(lineNo);</span>
+<span class="fc bfc" id="L601" title="All 2 branches covered.">            if (textBlock != null) {</span>
+<span class="fc" id="L602">                final List&lt;JavadocTag&gt; tags = getJavadocTags(textBlock);</span>
+<span class="fc bfc" id="L603" title="All 2 branches covered.">                if (ScopeUtil.isOuterMostType(ast)) {</span>
+                    // don't check author/version for inner classes
+<span class="fc" id="L605">                    checkTag(ast, tags, JavadocTagInfo.AUTHOR.getName(),</span>
+                            authorFormat);
+<span class="fc" id="L607">                    checkTag(ast, tags, JavadocTagInfo.VERSION.getName(),</span>
+                            versionFormat);
+                }
+
+<span class="fc" id="L611">                final List&lt;String&gt; typeParamNames =</span>
+<span class="fc" id="L612">                    CheckUtil.getTypeParameterNames(ast);</span>
+<span class="fc" id="L613">                final List&lt;String&gt; recordComponentNames =</span>
+<span class="fc" id="L614">                    getRecordComponentNames(ast);</span>
+
+<span class="fc bfc" id="L616" title="All 2 branches covered.">                if (!allowMissingParamTags) {</span>
+
+<span class="fc" id="L618">                    typeParamNames.forEach(typeParamName -&gt; {</span>
+<span class="fc" id="L619">                        checkTypeParamTag(ast, tags, typeParamName);</span>
+<span class="fc" id="L620">                    });</span>
+
+<span class="fc" id="L622">                    recordComponentNames.forEach(componentName -&gt; {</span>
+<span class="fc" id="L623">                        checkComponentParamTag(ast, tags, componentName);</span>
+<span class="fc" id="L624">                    });</span>
+                }
+
+<span class="fc" id="L627">                checkUnusedParamTags(tags, typeParamNames, recordComponentNames);</span>
+            }
+        }
+<span class="fc" id="L630">    }</span>
+
+    /**
+     * Whether we should check this node.
+     *
+     * @param ast a given node.
+     * @return whether we should check a given node.
+     */
+    private boolean shouldCheck(DetailAST ast) {
+<span class="fc" id="L639">        final Scope customScope = ScopeUtil.getScope(ast);</span>
+<span class="fc" id="L640">        final Scope surroundingScope = ScopeUtil.getSurroundingScope(ast);</span>
+
+<span class="fc bfc" id="L642" title="All 4 branches covered.">        return customScope.isIn(scope)</span>
+<span class="fc bfc" id="L643" title="All 4 branches covered.">            &amp;&amp; (surroundingScope == null || surroundingScope.isIn(scope))</span>
+            &amp;&amp; (excludeScope == null
+<span class="fc bfc" id="L645" title="All 4 branches covered.">                || !customScope.isIn(excludeScope)</span>
+                || surroundingScope != null
+<span class="fc bfc" id="L647" title="All 2 branches covered.">                &amp;&amp; !surroundingScope.isIn(excludeScope))</span>
+<span class="fc bfc" id="L648" title="All 2 branches covered.">            &amp;&amp; !AnnotationUtil.containsAnnotation(ast, allowedAnnotations);</span>
+    }
+
+    /**
+     * Gets all standalone tags from a given javadoc.
+     *
+     * @param textBlock the Javadoc comment to process.
+     * @return all standalone tags from the given javadoc.
+     */
+    private List&lt;JavadocTag&gt; getJavadocTags(TextBlock textBlock) {
+<span class="fc" id="L658">        final JavadocTags tags = JavadocUtil.getJavadocTags(textBlock,</span>
+            JavadocUtil.JavadocTagType.BLOCK);
+<span class="fc bfc" id="L660" title="All 2 branches covered.">        if (!allowUnknownTags) {</span>
+<span class="fc bfc" id="L661" title="All 2 branches covered.">            for (final InvalidJavadocTag tag : tags.getInvalidTags()) {</span>
+<span class="fc" id="L662">                log(tag.getLine(), tag.getCol(), MSG_UNKNOWN_TAG,</span>
+<span class="fc" id="L663">                    tag.getName());</span>
+<span class="fc" id="L664">            }</span>
+        }
+<span class="fc" id="L666">        return tags.getValidTags();</span>
+    }
+
+    /**
+     * Verifies that a type definition has a required tag.
+     *
+     * @param ast the AST node for the type definition.
+     * @param tags tags from the Javadoc comment for the type definition.
+     * @param tagName the required tag name.
+     * @param formatPattern regexp for the tag value.
+     */
+    private void checkTag(DetailAST ast, Iterable&lt;JavadocTag&gt; tags, String tagName,
+                          Pattern formatPattern) {
+<span class="fc bfc" id="L679" title="All 2 branches covered.">        if (formatPattern != null) {</span>
+<span class="fc" id="L680">            boolean hasTag = false;</span>
+<span class="fc" id="L681">            final String tagPrefix = &quot;@&quot;;</span>
+
+<span class="fc bfc" id="L683" title="All 2 branches covered.">            for (final JavadocTag tag :tags) {</span>
+<span class="fc bfc" id="L684" title="All 2 branches covered.">                if (tag.getTagName().equals(tagName)) {</span>
+<span class="fc" id="L685">                    hasTag = true;</span>
+<span class="fc bfc" id="L686" title="All 2 branches covered.">                    if (!formatPattern.matcher(tag.getFirstArg()).find()) {</span>
+<span class="fc" id="L687">                        log(ast, MSG_TAG_FORMAT, tagPrefix + tagName, formatPattern.pattern());</span>
+                    }
+                }
+<span class="fc" id="L690">            }</span>
+<span class="fc bfc" id="L691" title="All 2 branches covered.">            if (!hasTag) {</span>
+<span class="fc" id="L692">                log(ast, MSG_MISSING_TAG, tagPrefix + tagName);</span>
+            }
+        }
+<span class="fc" id="L695">    }</span>
+
+    /**
+     * Verifies that a record definition has the specified param tag for
+     * the specified record component name.
+     *
+     * @param ast the AST node for the record definition.
+     * @param tags tags from the Javadoc comment for the record definition.
+     * @param recordComponentName the name of the type parameter
+     */
+    private void checkComponentParamTag(DetailAST ast,
+                                        Collection&lt;JavadocTag&gt; tags,
+                                        String recordComponentName) {
+
+<span class="fc" id="L709">        final boolean found = tags</span>
+<span class="fc" id="L710">            .stream()</span>
+<span class="fc" id="L711">            .filter(JavadocTag::isParamTag)</span>
+<span class="fc bfc" id="L712" title="All 2 branches covered.">            .anyMatch(tag -&gt; tag.getFirstArg().indexOf(recordComponentName) == 0);</span>
+
+<span class="fc bfc" id="L714" title="All 2 branches covered.">        if (!found) {</span>
+<span class="fc" id="L715">            log(ast, MSG_MISSING_TAG, JavadocTagInfo.PARAM.getText()</span>
+                + SPACE + recordComponentName);
+        }
+<span class="fc" id="L718">    }</span>
+
+    /**
+     * Verifies that a type definition has the specified param tag for
+     * the specified type parameter name.
+     *
+     * @param ast the AST node for the type definition.
+     * @param tags tags from the Javadoc comment for the type definition.
+     * @param typeParamName the name of the type parameter
+     */
+    private void checkTypeParamTag(DetailAST ast,
+            Collection&lt;JavadocTag&gt; tags, String typeParamName) {
+<span class="fc" id="L730">        final String typeParamNameWithBrackets =</span>
+            OPEN_ANGLE_BRACKET + typeParamName + CLOSE_ANGLE_BRACKET;
+
+<span class="fc" id="L733">        final boolean found = tags</span>
+<span class="fc" id="L734">            .stream()</span>
+<span class="fc" id="L735">            .filter(JavadocTag::isParamTag)</span>
+<span class="fc bfc" id="L736" title="All 2 branches covered.">            .anyMatch(tag -&gt; tag.getFirstArg().indexOf(typeParamNameWithBrackets) == 0);</span>
+
+<span class="fc bfc" id="L738" title="All 2 branches covered.">        if (!found) {</span>
+<span class="fc" id="L739">            log(ast, MSG_MISSING_TAG, JavadocTagInfo.PARAM.getText()</span>
+                + SPACE + typeParamNameWithBrackets);
+        }
+<span class="fc" id="L742">    }</span>
+
+    /**
+     * Checks for unused param tags for type parameters and record components.
+     *
+     * @param tags tags from the Javadoc comment for the type definition
+     * @param typeParamNames names of type parameters
+     * @param recordComponentNames record component names in this definition
+     */
+    private void checkUnusedParamTags(
+        List&lt;JavadocTag&gt; tags,
+        List&lt;String&gt; typeParamNames,
+        List&lt;String&gt; recordComponentNames) {
+
+<span class="fc bfc" id="L756" title="All 2 branches covered.">        for (final JavadocTag tag: tags) {</span>
+<span class="fc bfc" id="L757" title="All 2 branches covered.">            if (tag.isParamTag()) {</span>
+<span class="fc" id="L758">                final String paramName = extractParamNameFromTag(tag);</span>
+<span class="fc bfc" id="L759" title="All 2 branches covered.">                final boolean found = typeParamNames.contains(paramName)</span>
+<span class="fc bfc" id="L760" title="All 2 branches covered.">                        || recordComponentNames.contains(paramName);</span>
+
+<span class="fc bfc" id="L762" title="All 2 branches covered.">                if (!found) {</span>
+<span class="fc" id="L763">                    final String actualParamName =</span>
+<span class="fc" id="L764">                        TYPE_NAME_IN_JAVADOC_TAG_SPLITTER.split(tag.getFirstArg())[0];</span>
+<span class="fc" id="L765">                    log(tag.getLineNo(), tag.getColumnNo(),</span>
+                        MSG_UNUSED_TAG,
+<span class="fc" id="L767">                        JavadocTagInfo.PARAM.getText(), actualParamName);</span>
+                }
+            }
+<span class="fc" id="L770">        }</span>
+
+<span class="fc" id="L772">    }</span>
+
+    /**
+     * Extracts parameter name from tag.
+     *
+     * @param tag javadoc tag to extract parameter name
+     * @return extracts type parameter name from tag
+     */
+    private static String extractParamNameFromTag(JavadocTag tag) {
+        final String typeParamName;
+<span class="fc" id="L782">        final Matcher matchInAngleBrackets =</span>
+<span class="fc" id="L783">                TYPE_NAME_IN_JAVADOC_TAG.matcher(tag.getFirstArg());</span>
+<span class="fc bfc" id="L784" title="All 2 branches covered.">        if (matchInAngleBrackets.find()) {</span>
+<span class="fc" id="L785">            typeParamName = matchInAngleBrackets.group(1).trim();</span>
+        }
+        else {
+<span class="fc" id="L788">            typeParamName = TYPE_NAME_IN_JAVADOC_TAG_SPLITTER.split(tag.getFirstArg())[0];</span>
+        }
+<span class="fc" id="L790">        return typeParamName;</span>
+    }
+
+    /**
+     * Collects the record components in a record definition.
+     *
+     * @param node the possible record definition ast.
+     * @return the record components in this record definition.
+     */
+    private static List&lt;String&gt; getRecordComponentNames(DetailAST node) {
+<span class="fc" id="L800">        final DetailAST components = node.findFirstToken(TokenTypes.RECORD_COMPONENTS);</span>
+<span class="fc" id="L801">        final List&lt;String&gt; componentList = new ArrayList&lt;&gt;();</span>
+
+<span class="fc bfc" id="L803" title="All 2 branches covered.">        if (components != null) {</span>
+<span class="fc" id="L804">            TokenUtil.forEachChild(components,</span>
+                TokenTypes.RECORD_COMPONENT_DEF, component -&gt; {
+<span class="fc" id="L806">                    final DetailAST ident = component.findFirstToken(TokenTypes.IDENT);</span>
+<span class="fc" id="L807">                    componentList.add(ident.getText());</span>
+<span class="fc" id="L808">                });</span>
+        }
+
+<span class="fc" id="L811">        return componentList;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
